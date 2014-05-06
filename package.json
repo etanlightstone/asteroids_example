@@ -1,0 +1,11 @@
+{
+  "name": "astroids",
+  "description": "MPC astroids dataabase",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express": "4.1.1",
+    "mongodb": "*",
+    "monk": "*"
+  }
+}

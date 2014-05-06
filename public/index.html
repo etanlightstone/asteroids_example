@@ -1,0 +1,44 @@
+<html ng-app="asteroidsApp">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MPC asteroids database</title>
+
+  <!-- Bootstrap -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <script src="js/angular.js"></script>
+  <script src="js/angular-resource.js"></script>
+  <script src="js/controllers.js"></script>
+  <script src="js/services.js"></script>
+  <script src="js/directives.js"></script>
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-4">
+      <ul class="nav nav-pills nav-stacked" my-nav>
+        <li class="active"><a href="#">Welcome</a></li>
+        <li><a href="#">Planets Search</a></li>
+        <li><a href="#">Planets List</a></li>
+      </ul>
+      </div>
+      <div class="col-md-8" ng-controller="PlanetsController">
+        <h1> Hello MPC Database {{'here' + '.'}} </h1>
+        <button> Random Astroid </button>
+        <ul>
+          <li ng-repeat="planet in planets">
+            {{planet.name}}
+          </li>
+          <li ng-repeat="user in users">
+            {{user.username}}
+          </li>
+        </ul>
+      </div> <!-- END PlanetsController -->
+      
+    </div> <!-- END row -->
+  </div> <!-- END container fluid -->
+  
+  <script src="js/jquery-1.11.1.min.js"></script> 
+  <script src="js/bootstrap.min.js"></script> 
+</body>
+</html>
