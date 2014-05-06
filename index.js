@@ -3,7 +3,8 @@ var express = require('express');
 
 var mongo = require('mongodb');
 var monk = require('monk');
-var db = monk('localhost:27017/planetsdb');
+var db = monk('mongodb://heroku_app24929585:oj935gaq2mluefeejeeo930vls@ds029807.mongolab.com:29807/heroku_app24929585'); 
+//monk('localhost:27017/planetsdb');
 
 var app = express();
 var planetsDB = db.get('planetscollection');

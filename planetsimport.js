@@ -3,7 +3,9 @@ var path = require('path');
 var readline = require('readline');
 var mongo = require('mongodb');
 var monk = require('monk');
-var db = monk('localhost:27017/planetsdb');
+//var db = monk('localhost:27017/planetsdb');
+var db = monk('mongodb://heroku_app24929585:oj935gaq2mluefeejeeo930vls@ds029807.mongolab.com:29807/heroku_app24929585'); 
+
 
 var filePath = path.join(__dirname + '/MPCORB.DAT');
 var rd = readline.createInterface({
@@ -35,7 +37,7 @@ rd.on('line', function(line) {
       collection.insert(planet);
       //console.log(planet);
     }
-    if (line.indexOf('----------------------') != -1) {
+    if (line.indexOf('----------------------') != -1) { // (line.indexOf('I8302') != -1) {
       console.log("GOODIES FOUND!");
       reachedGoodies = true;
     }
