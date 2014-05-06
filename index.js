@@ -36,8 +36,13 @@ app.get('/userlist', function(req, res) {
     });
 });
 
-var server = app.listen(80, function() {
-    console.log('Listening on port %d', server.address().port);
+// var server = app.listen(80, function() {
+//     console.log('Listening on port %d', server.address().port);
+// });
+
+var port = Number(process.env.PORT || 3000);
+app.listen(port, function() {
+  console.log("Listening on " + port);
 });
 
 app.use(express.static(__dirname + '/public'));
