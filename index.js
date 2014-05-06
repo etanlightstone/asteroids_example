@@ -25,7 +25,7 @@ app.get('/planets/list/:from/:total', function(req, res){
 
 app.get('/planets/:desn', function(req, res){
   planetsDB.find({Desn: req.params.desn},function(e,docs){
-        res.json(docs);
+        res.json(docs[0]);
     });
 });
 
