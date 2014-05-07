@@ -5,9 +5,11 @@ copy MPCORB.DAT into the node project folder form here: http://www.minorplanetce
 
 import by running:
 > node planetsimport.js
-Note: Watch CPU usage of the node process, it doesn't exist it on its own :)  control-c when the CPU usage drops to zero.. its done!
+
+Note: Watch CPU usage of the node process, it doesn't exit it on its own :)  control-c when the CPU usage drops to zero.. its done!
 
 Run using: 
+
 > node index.js
 
 then visit: 
