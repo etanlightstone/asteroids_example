@@ -26,6 +26,7 @@ process takes a few minutes, it should import just over 600,000 asteroids
 
 connect to the db created by the import script
 ```javascript
+bash$ mongo
 > use planetsdb
 ```
 
@@ -54,8 +55,8 @@ connect to the db created by the import script
 
 ```javascript
 var map = function () {
-     var planet = this;
-     emit(planet.designation, {count:1, abs_magnitude: planet.absolute_magnitude});
+  var planet = this;
+  emit(planet.designation, {count:1, abs_magnitude: planet.absolute_magnitude});
 }
 
 
