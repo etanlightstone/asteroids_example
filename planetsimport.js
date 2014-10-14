@@ -16,11 +16,12 @@ var rd = readline.createInterface({
 
 var lineCount = 1;
 rd.on('line', function(line) {
-  var planet = JSON.parse(line.substring(0, line.length - 1));  // remove last comma as array
+
+
+  var planet = JSON.parse(line);  // remove last comma as array
   var collection = db.get('planetscollection');
   collection.insert(planet.property);
   console.log("inserted asteroid: " + lineCount);
-  //console.log(planet);
   lineCount += 1;
 
 
