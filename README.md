@@ -1,8 +1,8 @@
 Requirements: nodeJS and MongoDB
 
 
-## requirements node, mongodb
-## Have at least 10 gigs free
+# requirements node, mongodb
+# Have at least 10 gigs free
 mkdir ~/data
 mongod --dbpath ~/data
 cd asteroids
@@ -18,17 +18,17 @@ node planetsimport.js
 
 
 
-## process takes a few minutes, it should import just over 600,000 asteroids
+# process takes a few minutes, it should import just over 600,000 asteroids
 
 
-## let’s try a simple query in the mongo console
+# let’s try a simple query in the mongo console
 
 # connect to the db created by the import script
 > use planetsdb
 
 
 
- # should be something over 650,000
+# should be something over 650,000
 
 > db.planetscollection.count()  
 
@@ -46,6 +46,7 @@ node planetsimport.js
 
 # lets look at them
 > db.planetscollection.find({absolute_magnitude: {$lt: 1.0}}).pretty()
+
 
 # let’s try some mapReduce!  compute average absolute_magnitude for the entire database.
 
@@ -72,11 +73,5 @@ var finalize =  function (key,value) {
 }
 
 
-
-## operation takes about 2 minutes on a modern macbook pro
+# operation takes about 2 minutes on a modern macbook pro
 > db.planetscollection.mapReduce(map, reduce, {out: "asteroids_ave_example", finalize: finalize})
-
-
-
-
-
