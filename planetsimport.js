@@ -3,43 +3,26 @@ var path = require('path');
 var readline = require('readline');
 var mongo = require('mongodb');
 var monk = require('monk');
-//var db = monk('localhost:27017/planetsdb');
-var db = monk('mongodb://heroku_app24929585:oj935gaq2mluefeejeeo930vls@ds029807.mongolab.com:29807/heroku_app24929585'); 
+var db = monk('localhost:27017/planetsdb');
 
 
-var filePath = path.join(__dirname + '/MPCORB.DAT');
+var filePath = path.join(__dirname + '/public/data/properties.json');
 var rd = readline.createInterface({
     input: fs.createReadStream(filePath),
     output: process.stdout,
     terminal: false
 });
-// fs.readFile(filePath, {encoding: 'utf-8'}, function(err,data){
-//     if (!err){
-//     console.log('received data: ' + data);
-// 
-//     }else{
-//         console.log(err);
-//     }
-// 
-// });
-var keys = "Desn    H   G   Epoch     M   Peri   Node   Incl  e   n     a   zero Reference #Obs #Opp  Arc  rms  Perts1 Perts2  Computer hex para Name bignum".split(/\s{1,}/);
-var reachedGoodies = false;
 
+
+var lineCount = 1;
 rd.on('line', function(line) {
-    if (reachedGoodies) {
-      //console.log(line);
-      var row = line.split(/\s{1,}/);
-      var planet = {};
-      for (var i=0;i<row.length; i++) {
-        planet[keys[i]] = row[i];
-      }
-      var collection = db.get('planetscollection');
-      collection.insert(planet);
-      //console.log(planet);
-    }
-    if (line.indexOf('----------------------') != -1) { // (line.indexOf('I8302') != -1) {
-      console.log("GOODIES FOUND!");
-      reachedGoodies = true;
-    }
-    
+  var planet = JSON.parse(line.substring(0, line.length - 1));  // remove last comma as array
+  var collection = db.get('planetscollection');
+  collection.insert(planet.property);
+  console.log("inserted asteroid: " + lineCount);
+  //console.log(planet);
+  lineCount += 1;
+
+
+
 });

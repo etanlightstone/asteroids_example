@@ -16,7 +16,7 @@ library.json = {
          r = r + (pVal[0] == '"' ? str : val) + pVal + '</span>';
       return r + (pEnd || '');
       },
-      
+
    prettyPrint: function(obj) {
       var jsonLine = /^( *)("[\w]+": )?("[^"]*"|[\w.+-]*)?([,[{])?$/mg;
       return JSON.stringify(obj, null, 3)
@@ -30,7 +30,7 @@ library.json = {
 asteroidsApp.directive('myNav', function(){
   // was $resource('planets/:planetID.json', {}, {
     function link(scope, element, attrs) {
-        
+
           element.find('a').on('click', function() {
             var self = $(this);
             element.children().removeClass('active');
@@ -46,7 +46,7 @@ asteroidsApp.directive('myNav', function(){
 asteroidsApp.directive('myPlanet', function(){
   // was $resource('planets/:planetID.json', {}, {
     function link(scope, element, attrs) {
-        
+
          // var stuff = JSON.parse(element.text());
         //  element.html(library.json.prettyPrint(stuff));
     }
@@ -55,25 +55,3 @@ asteroidsApp.directive('myPlanet', function(){
       link: link
     };
 });
-
-
-// asteroidsApp.directive('prettyJson', function(){
-//   
-//    
-//   // was $resource('planets/:planetID.json', {}, {
-//     function link(scope, element, attrs) {
-//           var jsontext = element.text();
-//           
-//           element.html(library.json.prettyPrint(account));
-//           
-//           element.find('a').on('click', function() {
-//             var self = $(this);
-//             element.children().removeClass('active');
-//             self.parent().addClass('active');
-//           });
-//     }
-// 
-//     return {
-//       link: link
-//     };
-// });

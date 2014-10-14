@@ -2,7 +2,7 @@ var express = require('express');
 
 var mongo = require('mongodb');
 var monk = require('monk');
-var db = monk('mongodb://heroku_app24929585:oj935gaq2mluefeejeeo930vls@ds029807.mongolab.com:29807/heroku_app24929585'); 
+var db = monk('mongodb://localhost:27017/planetsdb');
 var app = express();
 var planetsDB = db.get('planetscollection');
 
@@ -16,8 +16,8 @@ app.get('/planets/list/:from/:total', function(req, res){
 });
 
 
-app.get('/planets/:desn', function(req, res){
-  planetsDB.find({Desn: req.params.desn},function(e,docs){
+app.get('/planets/:name', function(req, res){
+  planetsDB.find({name: req.params.name},function(e,docs){
         res.json(docs[0]);
     });
 });

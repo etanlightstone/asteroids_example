@@ -20,39 +20,28 @@
       <div class="col-md-4">
       <ul class="nav nav-pills nav-stacked" my-nav>
         <li class="active"><a href="#">Welcome</a></li>
-        <li><a href="#">Planets Search</a></li>
-        <li><a href="#">Planets List</a></li>
+        <li><a href="#/search">Planets Search</a></li>
+        <li><a href="#/analysis">Planets Analysis</a></li>
       </ul>
       </div>
       <div class="col-md-8" ng-controller="PlanetsController">
         <h1> Hello MPC Database {{'here' + '.'}} </h1>
         <div class="input-group">
-          <span class="input-group-addon">Designation</span>
-          <input type="text" ng-model="planetDesignation" class="form-control" placeholder="Designation">
+          <span class="input-group-addon">Name</span>
+          <input type="text" ng-model="planetName" class="form-control" placeholder="Name">
         </div>
         <div id="planetDesignation" ng-model="singleplanet">
           <pre><code>{{singleplanet}}</code></pre>
-          
+
         </div>
-        
-        <br />
-        <h2> Planets list, increments of 20 </h2>
-        <table class="table table-condensed">
-          <tr>
-            <th ng-repeat="key in planetkeys">{{key}}</th>
-          </tr>
-          <tr ng-repeat="planet in planets">
-            <td ng-repeat="key in planetkeys">{{planet[key]}}</td>
-          </tr>
-          
-        </table>
-        <button class="increment"> Next 20 </button>
+
+
       </div> <!-- END PlanetsController -->
-      
+
     </div> <!-- END row -->
   </div> <!-- END container fluid -->
-  
-  <script src="js/jquery-1.11.1.min.js"></script> 
-  <script src="js/bootstrap.min.js"></script> 
+
+  <script src="js/jquery-1.11.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -1,17 +1,24 @@
 var asteroidsApp = angular.module('asteroidsApp', ['ngResource']);
 
-asteroidsApp.controller('PlanetsController',  function($scope, Planet, User, SinglePlanet) {
-  $scope.planets = Planet.query();
-  $scope.planetkeys = "Desn    H   G   Epoch     M   Peri   Node   Incl  e   n     a   zero Reference #Obs #Opp  Arc  rms  Perts1 Perts2  Computer hex para Name bignum".split(/\s{1,}/);
-  
-  $scope.users = User.query();
-  
-  // $scope.singleplanet = [];
-  //    var singleplanets = SinglePlanet.query({designation: '00001'}, function(){
-  //      for (var planet in singleplanets) {
-  //         $scope.singleplanet.push(planet);
-  //       }
-  //    });
- 
-  $scope.singleplanet = SinglePlanet.query({designation: '00001'});
+asteroidsApp.controller('PlanetsController',  function($scope, $http) {
+
+  $scope.singleplanet =  {};
+  $http.get('/planets/Ceres').
+    success(function(data, status, headers, config) {
+      $scope.singleplanet = data;
+    });
+
+
+  $scope.$watch('planetName', function (value) {
+    $http.get('/planets/' + value).
+      success(function(data, status, headers, config) {
+        $scope.singleplanet = data;
+        searchStarted = false;
+    });
+
+
+  });
+
+
+
 });
