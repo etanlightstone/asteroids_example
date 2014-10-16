@@ -1,5 +1,5 @@
 var express = require('express');
-
+require('newrelic');
 var mongo = require('mongodb');
 var monk = require('monk');
 var db = monk('mongodb://localhost:27017/planetsdb');
