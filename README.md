@@ -12,7 +12,7 @@ npm install
 
 # copy your downloaded json data for asteroids to the right spot
 ```javascript
-cp <path to your download of properies.json> ./public/data/
+cp <path to your download of mp_properies.json> ./public/data/
 ```
 
 # Run the import, this takes a few minutes
